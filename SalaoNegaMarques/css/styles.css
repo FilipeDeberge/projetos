@@ -1,0 +1,142 @@
+body{
+    margin:0;
+    padding:0;
+    background-image: url(../images/fundopreto.jpg);
+}
+.container{
+    /* background: #5CA4EA; */
+    background: #e262b7f6;
+    max-width: 800px;
+    margin:auto;
+    margin-top: 20px;
+    /* overflow: auto; */
+    /* padding-top: 20px;
+    padding-left: 30px; */
+    border-color: white;
+    border-style: solid;
+    /* border-radius: 10px; */
+
+}
+header{
+    max-width: 564px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    
+}
+
+.btn-group{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.btn-group button+button{
+    margin-left: 10px;
+    
+}
+
+.btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    /* border: 2px solid #91C9FF; */
+    border: 2px solid white;
+    outline: none;
+    transition: 1s ease-in-out;
+    position: relative;
+    /* margin-right: 5px;
+    margin-bottom: 5px; */
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+}
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: #4F95DA;
+}
+
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+
+#form_agendar{
+    
+    overflow: hidden;
+    /* border-radius: 10px; */
+    max-width: 70%;
+    
+    /* padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-right: 10px; */
+    /* margin-left: 110px; */
+    
+    background-color: transparent;
+    border: 2px solid white;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+
+    
+    /* background-image: url("../images/fundo.png");
+    background-size: cover;
+    background-repeat: no-repeat; */
+    
+}
+.form-group{
+    display:flex;
+
+}
+.form-group input+input{
+    margin-left: 10px;
+}
+input{
+    /* border: 2px solid #91C9FF; */
+    border: 2px solid white;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+    background: #e262b700;
+    width: 50%;
+}
+input[type="submit"]{
+    color:white;
+    background-color: transparent;
+    font-weight: bold;
+    display: block;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+input[type="date"],input[type="time"]{
+    color:white;
+    font: 1em sans-serif;    
+}
+input::placeholder {
+    color: white;
+    font: 1.2em sans-serif;
+  }
