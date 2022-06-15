@@ -15,10 +15,12 @@ async function selectAgendamentos(){
     return rows;
 }
 
-async function insertAgendamentos(agendamento){
+async function insertAgendamentos(nome, telefone, email, servico, obs, sinal, valorTotal, faltaPagar, data, hora){
+    console.log("entrei no insert")
     const conn = await connect();
+    console.log("entrei no comando")
     const sql = 'INSERT INTO tb_agendamentos (NM_CLIENTE, TELEFONE, EMAIL, SERVICO, OBSERVACAO, VL_SINAL, VL_TOTAL, VL_PENDENTE, DT_AGENDADA, HR_AGENDADA) VALUES (?,?,?,?,?,?,?,?,?,?)';
-    const values = [agendamento.nome, agendamento.telefone, agendamento.email, agendamento.servico, agendamento.obs, agendamento.sinal, agendamento.valorTotal, agendamento.faltaPagar, agendamento.data, agendamento.hora];
+    const values = [nome, telefone, email, servico, obs, sinal, valorTotal, faltaPagar, data, hora];
     await conn.query(sql, values);
 }
 
