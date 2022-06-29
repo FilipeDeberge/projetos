@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/icon.ico" type="'image/ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Período</title>
+</head>
+<body>
+    <div class='container_consultas'>
+        <h1 class="titulos"> Agenda do Período</h1>
+        <table>
+            <tr>
+                <th>Cliente</th>
+                <th>Telefone</th>
+                <th>Serviço</th>
+                <th>Observação</th>
+                <th>Valor do Sinal</th>
+                <th>Valor Total</th>
+                <th>Valor Pendente</th>
+                <th>Data Agendada</th>
+                <th>Hora Agendada</th>
+            </tr>
+            
+            <% for(let agendamento of agendamentos){ %>
+            <tr> 
+                <td><%=agendamento.NM_CLIENTE%></td>
+                <td><%=agendamento.TELEFONE%></td>
+                <td><%=agendamento.SERVICO%></td>
+                <td><%=agendamento.OBSERVACAO%></td>
+                <td><%=agendamento.VL_SINAL%></td>
+                <td><%=agendamento.VL_TOTAL%></td>
+                <td><%=agendamento.VL_PENDENTE%></td>
+                <td><%=agendamento.DT_AGENDADA%></td>
+                <td><%=agendamento.HR_AGENDADA%></td>
+            </tr>    
+            <%}%>
+            
+                
+        </table>
+
+        <a href='http://localhost:8081/index'><button class="btn_voltar">Menu</button></a>
+    </div>
+</body>
+</html>
