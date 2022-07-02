@@ -132,7 +132,7 @@ app.get('/dia', async (req, res) => {
     console.log(hj)
 
     const day = await Agendamento.findAll({
-        attributes: ['NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
+        attributes: ['ID','NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
         where: {
             DT_AGENDADA: hj
         }})
@@ -147,7 +147,7 @@ app.get('/semana', async (req, res) => {
 
     const { Op } = require("sequelize");
     const semana = await Agendamento.findAll({
-        attributes: ['NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
+        attributes: ['ID','NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
         where: {
             DT_AGENDADA:{[Op.gte]:moment().subtract(7, 'days').toDate()}
         }})
@@ -160,7 +160,7 @@ app.get('/mes', async (req, res) => {
 
     const { Op } = require("sequelize");
     const mes = await Agendamento.findAll({
-        attributes: ['NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
+        attributes: ['ID','NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
         where: {
             DT_AGENDADA:{[Op.gte]:moment().subtract(30, 'days').toDate()}
         }})
@@ -177,7 +177,7 @@ app.post('/periodo', async(req, res) => {
     
     const { Op } = require("sequelize");
     const agendamentos = await Agendamento.findAll({
-        attributes: ['NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
+        attributes: ['ID','NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
         where: {
             DT_AGENDADA:{[Op.gte]:req.body.data_inicial, [Op.lte]:req.body.data_final}
         }})
@@ -199,10 +199,69 @@ app.post('/periodo', async(req, res) => {
 
 })
 
-app.get('/valores', (req, res) => {
+app.get('/alterar/:id', async (req, res) => {
+
+    const edit = await Agendamento.findAll({
+        attributes: ['ID','NM_CLIENTE', 'TELEFONE', 'SERVICO', 'OBSERVACAO', 'VL_SINAL', 'VL_TOTAL','VL_PENDENTE','DT_AGENDADA', 'HR_AGENDADA'],
+        where: {
+            ID: req.params.id
+        }})
+    
+    res.render('alterar.ejs', {edit: edit[0]})
+
+    
     
 })
+app.post("/alterar/:id", async (req, res) => 
+{
+    const {nome, telefone, email, servico, obs, sinal, valorTotal, faltaPagar, data, hora} = req.body;
+    await Agendamento.update({
+        NM_CLIENTE: nome,
+        TELEFONE: telefone,
+        EMAIL: email,
+        SERVICO: servico,
+        OBSERVACAO: obs,
+        VL_SINAL: sinal,
+        VL_TOTAL: valorTotal,
+        VL_PENDENTE: faltaPagar,
+        DT_AGENDADA: data,
+        HR_AGENDADA: hora
+        },{ where: {
+            ID: req.params.id
+        }})
+    
+    .then(() => {
+        return res.json({
+            erro: false,
+            mensagem: "Cliente alterado!"});
+    }).catch((erro) =>{
+        console.log(erro)
+        return res.status(400).json({
+            erro: true,
+            mensagem: "Erro: cliente não alterado..."});
+    });
 
+});
+
+app.get("/delete/:id", async (req, res) =>{
+    
+    await Agendamento.destroy({
+        where: {
+            ID: req.params.id
+        }
+    })
+    .then(() => {
+        return res.json({
+            erro: false,
+            mensagem: "Agendamento cancelado!"});
+    }).catch((erro) =>{
+        console.log(erro)
+        return res.status(400).json({
+            erro: true,
+            mensagem: "Erro: Problema no cancelamento..."});
+    });
+    
+})
 
 app.listen(8081,function(){
     console.log("Servidor rodando na porta 8081");

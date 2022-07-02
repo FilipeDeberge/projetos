@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/icon.ico" type="'image/ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Dia</title>
+</head>
+<body>
+    <div class='container_consultas'>
+        <form id="form_editar" action= "http://localhost:8081/alterar/<%=edit.ID%>" method= "POST">
+            <div class="form-group">
+            <input name ='nome' type='text' placeholder='Nome' value="<%=edit.NM_CLIENTE%>">
+            <input name ='telefone' type='tel' placeholder='Telefone' value="<%=edit.TELEFONE%>">
+            </div>
+            <div class="form-group">
+            <input name ='email' type='email' placeholder='Email' value="<%=edit.EMAIL%>">
+            <input name ='servico' type='text' placeholder='Serviço' value="<%=edit.SERVICO%>">
+            </div>
+            <div class="form-group">
+            <input name ='obs' type='text' placeholder='Observações' value="<%=edit.OBSERVACAO%>">
+            <input name ='sinal' type = 'number' placeholder='Sinal' value="<%=edit.VL_SINAL%>">
+            </div>
+            <div class="form-group">
+            <input name ='valorTotal' type = 'number' placeholder='Valor Total' value="<%=edit.VL_TOTAL%>">
+            <input name ='faltaPagar' type = 'number' placeholder='Valor Pendente' value="<%=edit.VL_PENDENTE%>">
+            </div>
+            <div class="form-group">
+            <input name ='data' type='date' placeholder='Data' value="<%=edit.DT_AGENDADA%>">
+            <input name ='hora' type='time' placeholder='Horário' value="<%=edit.HR_AGENDADA%>">
+            </div>
+            <input type='submit' value="SALVAR">
+            
+        </form>
+        <a href="http://localhost:8081/index"><button class="btn_voltar">Menu</button></a>
+    </div>
+    
+</body>
+</html>

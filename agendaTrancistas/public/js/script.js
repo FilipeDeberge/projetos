@@ -26,9 +26,15 @@ function agendar(){
 
 }
 
-function verDia(){
+function excluir(id){
+    var res = confirm("Deseja excluir o agendamento?");
+    if (res == true) {
+        var url = "http://localhost:8081/delete/"+id;
+        window.location.href = url;
+    }
 
 }
+
 function verSemana(){
 
 }
@@ -46,17 +52,4 @@ function periodo(){
     <input type='submit' value='PERIODO' onclick = "obterDados()">
     </form>`
     
-}
-function obterDados(){
-    
-    fetch("http://localhost:8081/periodo").then(res=> {return res.json()})
-    .then(json => {
-        console.log("esse aqui" + json)
-    })
-    
-//     document.getElementById("periodo").innerHTML = `<h2 class="estilo">Agendamentos do período</h2>
-// `
-}
-function valores(){
-
 }

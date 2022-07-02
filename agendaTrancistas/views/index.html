@@ -14,49 +14,56 @@
     <div class="container">     
         <header>
             <div class="btn-group">
-                <button class="btn" onclick="agendar()">
+                
+                <button class="btn" id="image-button1" onclick="agendar()">
                     <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                     </svg>
                     <span>AGENDAR</span>
                 </button>
-                <button class="btn" onclick="verDia()">
+                <a style="margin-left: 10px;" href = 'http://localhost:8081/dia'>
+                <button class="btn" id="image-button2" onclick="verDia()">
                     <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                     </svg>
                     <span>AGENDA DIA</span>
                 </button>
-                <button class="btn" onclick="verSemana()">
+                </a>
+                <a style="margin-left: 10px;" href = 'http://localhost:8081/semana'>
+                <button class="btn" id="image-button3" onclick="verSemana()">
                     <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                     </svg>
                     <span>AGENDA SEMANA</span>
                 </button>
+                </a>
             </div>
             <div class="btn-group">
-                <button class="btn" onclick="verMes()">
+                <a style="margin:0 10px 0 0;" href = 'http://localhost:8081/mes'>
+                <button class="btn" id="image-button4" onclick="verMes()">
                     <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                     </svg>
                     <span>AGENDA MÊS</span>
                 </button>
-                <button class="btn" onclick="periodo()">
+                </a>
+                <button class="btn" id="image-button5" onclick="periodo()">
                     <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                     </svg>
-                    <span>ESCOLHER DATA</span>
+                    <span>ESCOLHER PERIODO</span>
                 </button>
-                <button class="btn" onclick="valores()">
+                <button class="btn" id="image-button6" onclick="alteraDados()">
                     <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                       <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                     </svg>
-                    <span>VALORES R$</span>
+                    <span>ALTERAR AGENDA</span>
                 </button>
             </div>
         </header>

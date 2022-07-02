@@ -10,38 +10,43 @@
 </head>
 <body>
     <div class='container_consultas'>
-        <h1 class="titulos"> Agenda do Mês</h1>
-        <table>
-            <tr>
-                <th>Cliente</th>
-                <th>Telefone</th>
-                <th>Serviço</th>
-                <th>Observação</th>
-                <th>Valor do Sinal</th>
-                <th>Valor Total</th>
-                <th>Valor Pendente</th>
-                <th>Data Agendada</th>
-                <th>Hora Agendada</th>
-            </tr>
-            
-            <% for(let agendamento of mes){ %>
-                <tr> 
-                    <td><%=agendamento.NM_CLIENTE%></td>
-                    <td><%=agendamento.TELEFONE%></td>
-                    <td><%=agendamento.SERVICO%></td>
-                    <td><%=agendamento.OBSERVACAO%></td>
-                    <td><%=agendamento.VL_SINAL%></td>
-                    <td><%=agendamento.VL_TOTAL%></td>
-                    <td><%=agendamento.VL_PENDENTE%></td>
-                    <td><%=agendamento.DT_AGENDADA%></td>
-                    <td><%=agendamento.HR_AGENDADA%></td>
-                </tr>    
-                <%}%>
-            
-                
-        </table>
+        <div>
+            <h1 class="titulos">AGENDA DO MÊS</h1>
+            <table>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Telefone</th>
+                    <th>Serviço</th>
+                    <th>Observação</th>
+                    <th>Valor do Sinal</th>
+                    <th>Valor Total</th>
+                    <th>Valor Pendente</th>
+                    <th>Data Agendada</th>
+                    <th>Hora Agendada</th>
+                    <th colspan="2">Opções</th>
+                </tr>
 
-        <a href='http://localhost:8081/index'><button class="btn_voltar">Menu</button></a>
+                <% for(let agendamento of mes){ %>
+                    <tr> 
+                        <td><%=agendamento.NM_CLIENTE%></td>
+                        <td><%=agendamento.TELEFONE%></td>
+                        <td><%=agendamento.SERVICO%></td>
+                        <td><%=agendamento.OBSERVACAO%></td>
+                        <td><%=agendamento.VL_SINAL%></td>
+                        <td><%=agendamento.VL_TOTAL%></td>
+                        <td><%=agendamento.VL_PENDENTE%></td>
+                        <td><%=agendamento.DT_AGENDADA%></td>
+                        <td><%=agendamento.HR_AGENDADA%></td>
+                        <td><a href="/alterar/<%=agendamento.ID%>"><button class="btn_editar"></button></a></td>
+                        <td><a href="/delete/<%=agendamento.ID%>"><button class="btn_deletar"></button></a></td>
+                    </tr>    
+                    <%}%>
+                
+
+            </table>
+
+            <a href='http://localhost:8081/index'><button class="btn_voltar">Menu</button></a>
+        </div>
     </div>
 </body>
 </html>

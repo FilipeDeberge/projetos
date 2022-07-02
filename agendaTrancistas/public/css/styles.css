@@ -3,6 +3,9 @@ body{
     padding:0;
     background-image: url(../images/fundopreto.jpg);
 }
+a{
+    text-decoration: none;
+}
 
 .titulos{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -99,6 +102,19 @@ svg {
     flex-direction: column;
     align-items: center;
 }
+#form_editar{
+    
+    overflow: hidden;
+    max-width: 70%;
+    background-color: transparent;
+    border: 2px solid white;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .form-group{
     display:flex;
 
@@ -143,7 +159,7 @@ input::placeholder {
 .container_consultas{
     /* background: #5CA4EA; */
     background: #e262b7f6;
-    max-width:1000px;
+    max-width:calc(100% - 40rem);
     margin:auto;
     margin-top: 20px;
     /* overflow: auto; */
@@ -154,17 +170,65 @@ input::placeholder {
     /* border-radius: 10px; */
 
 }
+button#image-button1{
+    background: url('../images/agendar.png') no-repeat top left;
+    padding-left: 16px;
+    
+}
+button#image-button2{
+    background: url('../images/dia.png') no-repeat top left;
+    padding-left: 16px;
+    
+}
+button#image-button3{
+    background: url('../images/semana.png') no-repeat top left;
+    padding-left: 16px;
+    
+}
+button#image-button4{
+    background: url('../images/mes.png') no-repeat top left;
+    padding-left: 16px;
+    
+}
+button#image-button5{
+    background: url('../images/periodo.png') no-repeat top left;
+    padding-left: 16px;
+    
+}
+button#image-button6{
+    background: url('../images/alterar.png') no-repeat top left;
+    padding-left: 16px;
+    
+}
+button{
+    border:none;
+    text-decoration: none;
+    cursor:pointer;
+    
+}
+.btn_editar{
+    background: url('../images/editar.png') no-repeat ;
+    width: 32px;
+    height: 32px;
+}
+.btn_deletar{
+    background: url('../images/deletar.png') no-repeat ;
+    width: 32px;
+    height: 32px;
+}
 
 
 .btn_voltar{
     color:white;
     background-color: transparent;
-    display: block;
+    border-radius: 5px;
     margin:auto;
-    margin-top: 20px;
+    display: block;
+    margin-top: 50px;
     margin-bottom: 20px;
     cursor: pointer;
-    font:2rem sans-serif;
+    font-size:2rem;
+    font-family: Arial, Helvetica, sans-serif;
     
 }
 .btn_voltar:hover{
@@ -173,12 +237,14 @@ input::placeholder {
 }
 table{
     border-spacing: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 th{
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
     margin-right: auto;
+    
 }
 tr{
     text-align: center;

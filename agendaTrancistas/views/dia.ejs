@@ -9,8 +9,10 @@
     <title>Dia</title>
 </head>
 <body>
+
     <div class='container_consultas'>
-        <h1 class="titulos"> Dados do Dia</h1>
+
+        <h1 class="titulos">AGENDA DO DIA</h1>
         <table>
             <tr>
                 <th>Cliente</th>
@@ -22,10 +24,11 @@
                 <th>Valor Pendente</th>
                 <th>Data Agendada</th>
                 <th>Hora Agendada</th>
+                <th colspan="2">Opções</th>
             </tr>
             
             <% for(let agendamento of day){ %>
-                <tr> 
+                <tr>
                     <td><%=agendamento.NM_CLIENTE%></td>
                     <td><%=agendamento.TELEFONE%></td>
                     <td><%=agendamento.SERVICO%></td>
@@ -35,6 +38,8 @@
                     <td><%=agendamento.VL_PENDENTE%></td>
                     <td><%=agendamento.DT_AGENDADA%></td>
                     <td><%=agendamento.HR_AGENDADA%></td>
+                    <td><a href="/alterar/<%=agendamento.ID%>"><button class="btn_editar"></button></a></td>
+                    <td><a href="/delete/<%=agendamento.ID%>"><button class="btn_deletar"></button></a></td>
                 </tr>    
                 <%}%>
             
