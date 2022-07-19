@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'controle_gastos',
         'USER': 'root',
-        'PASSWORD': 'Mefazviver77!',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
